@@ -1,0 +1,37 @@
+<div class="w-full">
+    <div class="bg-[#051838] text-white w-full h-1/2 shadow-lg p-6 rounded-sm">
+        <div class="flex justify-around">
+            <div class="flex flex-col" *ngFor="let item of category[selectedSection].sections">
+
+                <h1 class="text-center">{{item.name}}</h1>
+
+                <button mat-stroked-button *ngFor="let section of item.items">
+                    {{section.name}}
+                </button>
+
+            </div>
+
+            <div class="hidden lg:block">
+                <div class="mb-5">
+                    <img class="rounded-2xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEOBDuYeS4yf1ESMpYjq4NKYt3N_iN2AgEqQ&s" alt="">
+
+                </div>
+                <p class="text-white">Coming Soon</p>
+
+            </div>
+
+            <div class="hidden lg:block">
+                <div class="mb-5">
+                    <img class="rounded-2xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEOBDuYeS4yf1ESMpYjq4NKYt3N_iN2AgEqQ&s" alt="">
+
+                </div>
+                <p class="text-white    ">Coming Soon</p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

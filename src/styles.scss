@@ -7,16 +7,19 @@
 body{
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background: black;
+    background: rgb(5, 24, 56);
     color: white;
     
 }
 
 .box{
-    box-shadow: white 0px 5px 15px;
+    box-shadow: #7073ca 0px 5px 15px;
     padding: 15px;
 }
 
 .hideScrollbar::-webkit-scrollbar{
     display: none;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
