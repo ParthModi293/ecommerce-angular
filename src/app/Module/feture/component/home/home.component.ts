@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { MainCarouselComponent } from "./main-carousel/main-carousel.component";
 import { ProductSliderComponent } from "./product-slider/product-slider.component";
-import { manJeans } from '../Data/Men/men_jeans';
-import { gounsPage1 } from '../Data/Gouns/gouns';
-import { lehngacholiPage2 } from '../Data/Saree/lenghaCholiPage2';
+import { manJeans } from '../../../../../Data/Men/men_jeans';
+import { gounsPage1 } from '../../../../../Data/Gouns/gouns';
+import { lehngacholiPage2 } from '../../../../../Data/Saree/lenghaCholiPage2';
 
 
 

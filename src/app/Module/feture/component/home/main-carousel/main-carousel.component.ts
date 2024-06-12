@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { homeCarouselData } from '../../Data/mainCarousel';
+import { homeCarouselData } from '../../../../../../Data/mainCarousel';
 
 import { CommonModule } from '@angular/common';
-import { sareePage1 } from '../../Data/Saree/page1';
+import { sareePage1 } from '../../../../../../Data/Saree/page1';
 
 @Component({
   selector: 'app-main-carousel',
