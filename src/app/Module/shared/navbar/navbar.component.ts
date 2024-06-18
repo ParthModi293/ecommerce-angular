@@ -4,18 +4,25 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 import { NavContentComponent } from "./nav-content/nav-content.component";
+import { Router } from '@angular/router';
+import {MatDialog, MatDialogActions, MatDialogModule} from '@angular/material/dialog'
+import { AuthComponent } from '../../auth/auth.component';
 
 @Component({
     selector: 'app-navbar',
     standalone: true,
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.scss',
-    imports: [MatIconModule, MatButtonModule, MatMenuModule, CommonModule, NavContentComponent]
+    imports: [MatIconModule, MatButtonModule, MatMenuModule, CommonModule, NavContentComponent,MatDialogActions,MatDialogModule]
 })
 export class NavbarComponent {
 
   currentSection:any
   isNavbarContentOpen:any
+
+  constructor(private route:Router, private dialog:MatDialog){
+
+  }
 
   openNavbarContent(section:any){
     this.isNavbarContentOpen=true;
@@ -28,7 +35,7 @@ export class NavbarComponent {
   }
 
   navigateTo(path:any){
-
+this.route.navigate([path])
   }
 
     @HostListener('document:click',[`$event`])
@@ -48,4 +55,20 @@ export class NavbarComponent {
         this.closeNavbarContent();
       }
     }
+
+
+
+
+
+    handleOpenLoginModal=()=>{
+      this.dialog.open(AuthComponent,{
+        width:"400px",
+        disableClose:false
+      })
+
+    }
+
+
+
+
 }

@@ -63,4 +63,5 @@ handleMultipleSelectFilter(value:string,sectionId:string){
     this.router.navigate([],{queryParams})
   }
 
+ 
 }
