@@ -7,6 +7,9 @@ import { NavContentComponent } from "./nav-content/nav-content.component";
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogActions, MatDialogModule} from '@angular/material/dialog'
 import { AuthComponent } from '../../auth/auth.component';
+import { UserService } from '../../../State/User/user.service';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../../../Models/AppState';
 
 @Component({
     selector: 'app-navbar',
@@ -19,8 +22,9 @@ export class NavbarComponent {
 
   currentSection:any
   isNavbarContentOpen:any
+  userProfile:any
 
-  constructor(private route:Router, private dialog:MatDialog){
+  constructor(private route:Router, private dialog:MatDialog,private userService:UserService,  private store:Store<AppState>){
 
   }
 
@@ -37,6 +41,26 @@ export class NavbarComponent {
   navigateTo(path:any){
 this.route.navigate([path])
   }
+
+
+
+
+ngOnInit() {
+ if(localStorage.getItem("jwt"))
+  this.userService.getUserProfile()
+
+  this.store.pipe(select((store)=>store.user)).subscribe((user)=>{
+    this.userProfile=user.userProfile;
+    if(user.userProfile){
+      this.dialog.closeAll()
+    }
+  })
+
+}
+
+
+
+
 
     @HostListener('document:click',[`$event`])
     onDocumentClick(event:MouseEvent){
@@ -62,10 +86,14 @@ this.route.navigate([path])
 
     handleOpenLoginModal=()=>{
       this.dialog.open(AuthComponent,{
-        width:"400px",
+        width:"500px",
         disableClose:false
       })
 
+    }
+
+    handleLogout=()=>{
+      this.userService.logout()
     }
 
 
