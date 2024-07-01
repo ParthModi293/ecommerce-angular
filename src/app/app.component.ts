@@ -13,6 +13,10 @@ import { AppState } from './Models/AppState';
 import { Store, StoreModule, select } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { authReducer } from './State/Auth/auth.reducer';
+import { SharedModule } from './Module/shared/shared.module';
+import { FetureModule } from './Module/feture/feture.module';
+import { AuthModule } from './Module/auth/auth.module';
+import { AdminModule } from './Module/admin/admin.module';
 
 
 @Component({
@@ -20,7 +24,7 @@ import { authReducer } from './State/Auth/auth.reducer';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, HomeComponent, CommonModule, NavbarComponent, MatIconModule, FooterComponent, ProductsComponent]
+    imports: [RouterOutlet, HomeComponent, CommonModule, NavbarComponent, MatIconModule, FooterComponent, ProductsComponent, SharedModule, FetureModule,AuthModule,AdminModule]
 })
 export class AppComponent {
   title = 'ecommerce-angular';
