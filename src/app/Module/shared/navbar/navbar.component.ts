@@ -47,12 +47,12 @@ this.route.navigate([path])
 
 ngOnInit() {
  if(localStorage.getItem("jwt"))
-  this.userService.getUserProfile()
+  this.userService.getUserProfile();
 
   this.store.pipe(select((store)=>store.user)).subscribe((user)=>{
     this.userProfile=user.userProfile;
     if(user.userProfile){
-      this.dialog.closeAll()
+      this.dialog.closeAll();
     }
   })
 
